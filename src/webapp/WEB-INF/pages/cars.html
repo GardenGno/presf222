@@ -3,13 +3,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Автомобили</title>
+    <title>Cars</title>
+    <style>
+        table th, table td {
+            padding: 5px;
+        }
+
+        .row {
+            font-style: italic;
+            color: black;
+        }
+
+    </style>
 </head>
 <body>
-<th:block th:each="car : ${carList}">
-    <h1 th:text="${car}"></h1>
-</th:block>
-
-
+<h1>Cars</h1>
+<table border="1">
+    <tr>
+        <th>No</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Series</th>
+    </tr>
+    <tr th:each="car, state : ${cars}"
+        class="row">
+        <td th:utext="${state.count}">No</td>
+        <td th:utext="${car.getModel()}">Model</td>
+        <td th:utext="${car.getYear()}">Year</td>
+        <td th:utext="${car.getSeries()}">Series</td>
+    </tr>
+</table>
 </body>
 </html>
