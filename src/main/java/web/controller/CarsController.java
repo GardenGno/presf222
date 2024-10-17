@@ -27,8 +27,6 @@ public class CarsController {
         } else {
             if (Integer.valueOf(count) > 5) {
                 model.addAttribute("cars", carService.carsList);
-            } else if (Integer.valueOf(count) < 0) {
-                model.addAttribute("cars", carService.carsList);
             } else {
                 model.addAttribute("cars", carService.getCars(Integer.valueOf(count)));
             }
